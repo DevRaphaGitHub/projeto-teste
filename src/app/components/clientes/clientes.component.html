@@ -60,11 +60,20 @@
                 </mat-form-field>
                 <mat-form-field class="data-select">
                     <mat-label>Data Cadastro</mat-label>
-                    <mat-select required>
+                    <mat-select required [value]="cliente.cadastro">
                         <mat-option>None</mat-option>
-                        <mat-option *ngFor="let month of listMonths" [value]="month.codigo">
-                            {{month.descricao}}
-                        </mat-option>
+                        <mat-option [value]="cliente.cadastro">Janeiro</mat-option>
+                        <mat-option [value]="cliente.cadastro">Fevereiro</mat-option>
+                        <mat-option [value]="cliente.cadastro">Março</mat-option>
+                        <mat-option [value]="cliente.cadastro">Abril</mat-option>
+                        <mat-option [value]="cliente.cadastro">Maio</mat-option>
+                        <mat-option [value]="cliente.cadastro">Junho</mat-option>
+                        <mat-option [value]="cliente.cadastro">Julho</mat-option>
+                        <mat-option [value]="cliente.cadastro">Agosto</mat-option>
+                        <mat-option [value]="cliente.cadastro">Setembro</mat-option>
+                        <mat-option [value]="cliente.cadastro">Outubro</mat-option>
+                        <mat-option [value]="cliente.cadastro">Novembro</mat-option>
+                        <mat-option [value]="cliente.cadastro">Dezembro</mat-option>
                     </mat-select>
                 </mat-form-field>
             </form>

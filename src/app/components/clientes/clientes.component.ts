@@ -16,21 +16,42 @@ export class ClientesComponent implements OnInit {
 
     clientes: Cliente[];
 
-    displayedColumns = ['id', 'nome', 'tel', 'actions'];
+    listMonths: Array<any>;
+
+    displayedColumns = ['id', 'nome', 'tel', 'cadastro', 'actions'];
 
     cliente: Cliente = {
         id: null,
         nome: '',
-        tel: ''
+        tel: '',
+        cadastro: ''
     }
 
     constructor(
         private clientesService: ClientesService,
         public modal: MatDialog,
         private dashboardService: DashboardService,
+        // private baseResource: BaseResourceModel,
     ) { }
 
     async ngOnInit() {
+        this.listMonths = [
+            { codigo: "Jan", descricao: "Janeiro" },
+            { codigo: "Fev", descricao: "Fevereiro" },
+            { codigo: "Mar", descricao: "Março" },
+            { codigo: "Abr", descricao: "Abril" },
+            { codigo: "Mai", descricao: "Maio" },
+            { codigo: "Jun", descricao: "Junho" },
+            { codigo: "Jul", descricao: "Julho" },
+            { codigo: "Ago", descricao: "Agosto" },
+            { codigo: "Set", descricao: "Setembro" },
+            { codigo: "Out", descricao: "Outubro" },
+            { codigo: "Nov", descricao: "Novembro" },
+            { codigo: "Dez", descricao: "Dezembro" },
+        ];
+
+        // setTimeout(() => this.listMonths = this.baseResource.optionsMonths())
+
         this.clientesService.getClientes().subscribe(
             clientes => {
                 this.clientes = clientes;
@@ -73,5 +94,10 @@ export class ClientesComponent implements OnInit {
         await modal.afterClosed().toPromise();
         this.ngOnInit();
     }
+
+    // pushMonths() {
+    //     // this.clientesService.getMonths();
+    //     this.ngOnInit();
+    // }
 }
 

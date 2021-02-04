@@ -25,3 +25,7 @@ form {
     flex-direction: column;
     margin: 20px;
 }
+
+.data-select {
+    width: 50%;
+}

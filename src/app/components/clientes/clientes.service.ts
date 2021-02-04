@@ -16,6 +16,7 @@ export class ClientesService {
         private snackBar: MatSnackBar
     ) { }
 
+    // SNACK BAR DE CONFIRMAÇÃO
     showMessage(msg: string) {
         this.snackBar.open(msg, 'FECHAR', {
             duration: 3000,
@@ -24,26 +25,32 @@ export class ClientesService {
         });
     }
 
+    // GET ALL
     getClientes(): Observable<Cliente[]> {
         return this.http.get<Cliente[]>(this.baseUrl);
     }
 
+    // GET BY ID
     getByIdCliente(id: number): Observable<Cliente> {
         const url = `${this.baseUrl}/${id}`;
         return this.http.get<Cliente>(url);
     }
 
+    // POST
     postCliente(cliente: Cliente): Observable<Cliente[]> {
         return this.http.post<Cliente[]>(this.baseUrl, cliente);
     }
 
+    // PUT
     putCliente(cliente: Cliente): Observable<Cliente> {
         const url = `${this.baseUrl}/${cliente.id}`;
         return this.http.put<Cliente>(url, cliente);
     }
 
+    // DELETE
     deleteCliente(id: number): Observable<Cliente> {
         const url = `${this.baseUrl}/${id}`;
         return this.http.delete<Cliente>(url);
     }
+
 }

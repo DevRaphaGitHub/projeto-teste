@@ -55,7 +55,10 @@ export class DashboardService {
     async loadChart() {
         let clientes = await this.getCadastros().toPromise();
         this.dataGraphic = clientes.length;
-
-        this.lineChartData = [{ data: [this.dataGraphic, this.dataGraphic, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Informações' }];
+        this.lineChartData = [
+            {
+                data: [this.dataGraphic, this.dataGraphic, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Total de cadastros por mês'
+            }
+        ];
     }
 }

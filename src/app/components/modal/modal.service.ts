@@ -12,8 +12,22 @@ export class ModalService {
 
     constructor(private http: HttpClient) { }
 
+    getClientes(): Observable<Cliente[]> {
+        return this.http.get<Cliente[]>(this.baseUrl);
+    }
+
     getByIdCliente(id: number): Observable<Cliente> {
         const url = `${this.baseUrl}/${id}`;
         return this.http.get<Cliente>(url);
+    }
+
+    putCliente(cliente: Cliente): Observable<Cliente> {
+        const url = `${this.baseUrl}/${cliente.id}`;
+        return this.http.put<Cliente>(url, cliente);
+    }
+
+    deleteCliente(id: number): Observable<Cliente> {
+        const url = `${this.baseUrl}/${id}`;
+        return this.http.delete<Cliente>(url);
     }
 }

@@ -4,19 +4,19 @@
             <mat-card class="dashboard-card">
                 <mat-card-header>
                     <mat-card-title>
-                        Estatísticas: {{ dataGraphic }} clientes
+                        Estatísticas: {{ dashboardService.dataGraphic }} clientes
                     </mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="dashboard-card-content">
                     <div class="align">
                         <div class="chart">
                             <canvas baseChart  
-                                [datasets]="lineChartData"
-                                [options]="lineChartOptions" 
-                                [colors]="lineChartColors"
-                                [legend]="lineChartLegend" 
-                                [chartType]="lineChartType"
-                                [labels]="lineChartLabels">
+                                [datasets]="dashboardService.lineChartData"
+                                [options]="dashboardService.lineChartOptions" 
+                                [colors]="dashboardService.lineChartColors"
+                                [legend]="dashboardService.lineChartLegend" 
+                                [chartType]="dashboardService.lineChartType"
+                                [labels]="dashboardService.lineChartLabels">
                             </canvas>
                         </div>
                     </div>

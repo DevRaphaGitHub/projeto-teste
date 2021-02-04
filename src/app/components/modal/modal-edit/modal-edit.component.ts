@@ -1,10 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Cliente } from '../../clientes/clientes.model';
-
-interface DialogData {
-    cliente: Cliente
-}
+import { ClientesService } from '../../clientes/clientes.service';
+import { ModalService } from '../modal.service';
 
 @Component({
     selector: 'app-modal-edit',
@@ -14,15 +12,34 @@ interface DialogData {
 
 export class ModalEditComponent implements OnInit {
 
-    selectedCliente = this.data.cliente;
+    clientes: Cliente[];
 
-    constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) { } //private clientesService: ClientesService
+    selectedCliente = this.data;
+
+    constructor(
+        @Inject(MAT_DIALOG_DATA)
+        public data: Cliente,
+        private clienteService: ClientesService,
+        private modalService: ModalService,
+        private modal: MatDialog
+    ) { }
 
     ngOnInit(): void {
-        this.selectedCliente.id;
+        this.clienteService.getClientes().subscribe(
+            clientes => {
+                this.clientes = clientes;
+            }
+        );
+    }
 
-        // this.clientesService.getByIdCliente(this.selectedCliente.id).subscribe(selectedCliente => {
-        //  this.cliente = selectedCliente;
-        // });
+    async updateCliente(cliente: Cliente) {
+        await this.modalService.putCliente(cliente).toPromise();
+        this.clienteService.showMessage('Cliente atualizado!');
+        this.modal.closeAll();
+        this.ngOnInit();
+    }
+
+    closeModal() {
+        this.modal.closeAll();
     }
 }

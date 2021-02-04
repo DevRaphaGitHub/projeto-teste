@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
 import { Cliente } from '../clientes/clientes.model';
 import { ClientesService } from '../clientes/clientes.service';
+import { DashboardService } from '../dashboard/dashboard.service';
+import { ModalConfirmComponent } from '../modal/modal-confirm/modal-confirm/modal-confirm.component';
 import { ModalEditComponent } from '../modal/modal-edit/modal-edit.component';
 
 @Component({
@@ -15,41 +16,40 @@ export class ClientesComponent implements OnInit {
 
     clientes: Cliente[];
 
-    selectedCliente: Cliente;
-
     displayedColumns = ['id', 'nome', 'tel', 'actions'];
 
     cliente: Cliente = {
-        id: 0,
+        id: null,
         nome: '',
         tel: ''
     }
 
-    constructor(private clientesService: ClientesService, private route: ActivatedRoute, public modal: MatDialog) { }
+    constructor(
+        private clientesService: ClientesService,
+        public modal: MatDialog,
+        private dashboardService: DashboardService,
+    ) { }
 
-    ngOnInit(): void {
+    async ngOnInit() {
         this.clientesService.getClientes().subscribe(
             clientes => {
                 this.clientes = clientes;
             }
         )
-
-        const id = +this.route.snapshot.paramMap.get('id');
-        this.clientesService.getByIdCliente(id).subscribe(selectedCliente => {
-            this.selectedCliente = selectedCliente;
-        });
     }
 
     async createCliente() {
         await this.clientesService.postCliente(this.cliente).toPromise();
         this.clientesService.showMessage('Cliente cadastrado!');
         this.ngOnInit();
+        this.dashboardService.loadChart();
     }
 
     async deleteCliente(id: number) {
         await this.clientesService.deleteCliente(id).toPromise();
         this.clientesService.showMessage('Cliente excluído!');
         this.ngOnInit();
+        this.dashboardService.loadChart();
     }
 
     async updateCliente(cliente: Cliente) {
@@ -58,8 +58,20 @@ export class ClientesComponent implements OnInit {
         this.ngOnInit();
     }
 
-    openModal(rowId: number) {
-        this.modal.open(ModalEditComponent, { data: this.clientes[rowId] });
+    async openModalEdit(id: number) {
+        let modal = await this.modal.open(ModalEditComponent, {
+            data: await this.clientesService.getByIdCliente(id).toPromise()
+        });
+        await modal.afterClosed().toPromise();
+        this.ngOnInit();
+    }
+
+    async openModalConfirm(id: number) {
+        let modal = await this.modal.open(ModalConfirmComponent, {
+            data: await this.clientesService.getByIdCliente(id).toPromise()
+        });
+        await modal.afterClosed().toPromise();
+        this.ngOnInit();
     }
 }
 

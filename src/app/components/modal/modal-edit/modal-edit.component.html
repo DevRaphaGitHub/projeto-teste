@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>Editar Cliente</h1>
+<div mat-dialog-content class="modal">
+    <mat-form-field>
+        <mat-label>Nome</mat-label>
+        <input autofocus matInput [(ngModel)]="selectedCliente.nome">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Telefone</mat-label>
+        <input matInput [(ngModel)]="selectedCliente.tel">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button color="primary">Salvar</button>
+</div>

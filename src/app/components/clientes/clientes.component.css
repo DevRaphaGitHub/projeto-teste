@@ -1,0 +1,27 @@
+.grid-cards {
+    display: flex;
+    flex-direction: row;
+    width: 55%;
+}
+
+.card-listagem {
+    margin: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+.card-add {
+    margin: 20px;
+    width: 100%;
+    height: 100%;
+}
+
+table {
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}

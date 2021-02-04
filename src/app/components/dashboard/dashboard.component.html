@@ -1,0 +1,27 @@
+<div class="grid-container">
+    <mat-grid-list cols="1" rowHeight="300px">
+        <mat-grid-tile>
+            <mat-card class="dashboard-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        Estatísticas: {{ dataGraphic }} clientes
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content class="dashboard-card-content">
+                    <div class="align">
+                        <div class="chart">
+                            <canvas baseChart  
+                                [datasets]="lineChartData"
+                                [options]="lineChartOptions" 
+                                [colors]="lineChartColors"
+                                [legend]="lineChartLegend" 
+                                [chartType]="lineChartType"
+                                [labels]="lineChartLabels">
+                            </canvas>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

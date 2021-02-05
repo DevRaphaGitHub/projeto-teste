@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
     selector: 'app-nav-bar',
@@ -8,14 +7,9 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class NavBarComponent implements OnInit {
 
-    constructor(private sidenav: MatSidenav) { }
+    constructor() { }
 
-    ngOnInit(): void {
-        
-    }
-
-    toggleMenu() {
-        
+    ngOnInit(): void {   
     }
 
 }

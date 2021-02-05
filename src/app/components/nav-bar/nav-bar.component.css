@@ -1,0 +1,49 @@
+img {
+    width: 100px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.image {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.toolbar {
+    background-color: #fff;
+}
+
+.toolbar-options {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toolbar-user {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-user {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.name-company {
+    font-size: 0.7rem;
+}
+
+.btn-icon {
+    margin: 10px;
+}
+
+.manage-user {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

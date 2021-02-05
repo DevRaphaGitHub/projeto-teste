@@ -1,24 +1,13 @@
 .grid-container {
-    width: auto;
+    width: 100%;
     height: auto;
     padding: 10px;
 }
 
 .dashboard-card {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
+    width: 100%;
 }
 
 .dashboard-card-content {
     text-align: center;
-}
-
-.align {
-    width: 100%;
-}
-
-.chart {
-    width: 97%;
 }

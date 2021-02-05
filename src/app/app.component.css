@@ -1,4 +1,15 @@
 #main {
-    background-color: rgb(243, 241, 241);
+    width: 100%;
     height: 100%;
+    background-color: rgb(243, 241, 241);
+}
+
+.align-menu {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.align-content {
+    width: 100%;
 }

@@ -62,23 +62,11 @@
                     <mat-label>Data Cadastro</mat-label>
                     <mat-select required [value]="cliente.cadastro">
                         <mat-option>None</mat-option>
-                        <mat-option [value]="cliente.cadastro">Janeiro</mat-option>
-                        <mat-option [value]="cliente.cadastro">Fevereiro</mat-option>
-                        <mat-option [value]="cliente.cadastro">Março</mat-option>
-                        <mat-option [value]="cliente.cadastro">Abril</mat-option>
-                        <mat-option [value]="cliente.cadastro">Maio</mat-option>
-                        <mat-option [value]="cliente.cadastro">Junho</mat-option>
-                        <mat-option [value]="cliente.cadastro">Julho</mat-option>
-                        <mat-option [value]="cliente.cadastro">Agosto</mat-option>
-                        <mat-option [value]="cliente.cadastro">Setembro</mat-option>
-                        <mat-option [value]="cliente.cadastro">Outubro</mat-option>
-                        <mat-option [value]="cliente.cadastro">Novembro</mat-option>
-                        <mat-option [value]="cliente.cadastro">Dezembro</mat-option>
                     </mat-select>
                 </mat-form-field>
             </form>
             <button mat-button color="primary" (click)="createCliente()"
-                [disabled]="cliente.nome === '' || cliente.tel === '' || cliente.cadastro === '' ">
+                [disabled]="cliente.nome === '' || cliente.tel === '' ">
                 Adicionar Cliente
             </button>
         </mat-card-content>

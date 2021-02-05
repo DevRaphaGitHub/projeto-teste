@@ -4,6 +4,9 @@
             <mat-card-title>
                 Clientes
             </mat-card-title>
+            <button mat-icon-button matTooltip="Adicionar Cliente" class="btn-add" (click)="openModalAdd()">
+                <mat-icon>person_add</mat-icon>
+            </button>
         </mat-card-header>
         <mat-card-content>
             <div class="listagem">
@@ -21,7 +24,7 @@
                         <td mat-cell *matCellDef="let row">{{ row.tel }}</td>
                     </ng-container>
                     <ng-container matColumnDef="cadastro">
-                        <th mat-header-cell *matHeaderCellDef>Cadastro</th>
+                        <th mat-header-cell *matHeaderCellDef>Mês Cadastro</th>
                         <td mat-cell *matCellDef="let row">{{ row.cadastro }}</td>
                     </ng-container>
                     <ng-container matColumnDef="actions">
@@ -39,36 +42,6 @@
                     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
                 </table>
             </div>
-        </mat-card-content>
-    </mat-card>
-    <mat-card class="card-add">
-        <mat-card-header>
-            <mat-card-title>
-                Adicionar Cliente
-            </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-            <form>
-                <mat-form-field>
-                    <mat-label>Nome</mat-label>
-                    <input matInput name="nome" [(ngModel)]="cliente.nome" required>
-                </mat-form-field>
-                <mat-form-field>
-                    <mat-label>Telefone</mat-label>
-                    <span matPrefix>+55 &nbsp;</span>
-                    <input type="number" matInput name="tel" [(ngModel)]="cliente.tel" required>
-                </mat-form-field>
-                <mat-form-field class="data-select">
-                    <mat-label>Data Cadastro</mat-label>
-                    <mat-select required [value]="cliente.cadastro">
-                        <mat-option>None</mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </form>
-            <button mat-button color="primary" (click)="createCliente()"
-                [disabled]="cliente.nome === '' || cliente.tel === '' ">
-                Adicionar Cliente
-            </button>
         </mat-card-content>
     </mat-card>
 </div>

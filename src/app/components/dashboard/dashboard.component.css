@@ -1,20 +1,14 @@
 .grid-container {
-    margin: 5px;
+    width: auto;
+    height: auto;
+    padding: 10px;
 }
 
 .dashboard-card {
     position: absolute;
-    top: 15px;
-    left: 15px;
-    right: 15px;
-    bottom: 15px;
-    width: 50%;
-}
-
-.more-button {
-    position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 0;
+    left: 0;
+    width: 100vw;
 }
 
 .dashboard-card-content {
@@ -26,5 +20,5 @@
 }
 
 .chart {
-    width: 100%;
+    width: 97%;
 }

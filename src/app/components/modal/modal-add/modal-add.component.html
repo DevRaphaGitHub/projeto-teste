@@ -1,0 +1,35 @@
+<div class="grid-cards">
+    <div class="card-add">
+        <mat-card-header>
+            <mat-card-title>
+                Adicionar Cliente
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form>
+                <mat-form-field>
+                    <mat-label>Nome</mat-label>
+                    <input matInput name="nome" [(ngModel)]="cliente.nome" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Telefone</mat-label>
+                    <span matPrefix>+55 &nbsp;</span>
+                    <input type="number" matInput name="tel" [(ngModel)]="cliente.tel" required>
+                </mat-form-field>
+                <!-- <mat-form-field class="data-select">
+                    <mat-label>Data Cadastro</mat-label>
+                    <mat-select required [value]="cliente.cadastro">
+                        <mat-option>None</mat-option>
+                    </mat-select>
+                </mat-form-field> -->
+            </form>
+            <button mat-button color="primary" (click)="createCliente()"
+                [disabled]="cliente.nome === '' || cliente.tel === '' ">
+                Adicionar Cliente
+            </button>
+            <button mat-button color="accent" (click)="closeModal()">
+                Cancelar
+            </button>
+        </mat-card-content>
+    </div>
+</div>

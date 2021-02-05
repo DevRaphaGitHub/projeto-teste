@@ -15,6 +15,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
@@ -22,8 +23,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { ModalConfirmComponent } from './components/modal/modal-confirm/modal-confirm/modal-confirm.component';
+import { ModalConfirmComponent } from './components/modal/modal-confirm/modal-confirm.component';
 import { ModalEditComponent } from './components/modal/modal-edit/modal-edit.component';
+import { ModalAddComponent } from './components/modal/modal-add/modal-add.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +33,8 @@ import { ModalEditComponent } from './components/modal/modal-edit/modal-edit.com
         DashboardComponent,
         ClientesComponent,
         ModalEditComponent,
-        ModalConfirmComponent
+        ModalConfirmComponent,
+        ModalAddComponent
     ],
     imports: [
         BrowserModule,
@@ -53,7 +56,8 @@ import { ModalEditComponent } from './components/modal/modal-edit/modal-edit.com
         MatSnackBarModule,
         MatDialogModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
+        MatTooltipModule
     ],
     providers: [],
     bootstrap: [AppComponent]

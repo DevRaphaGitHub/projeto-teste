@@ -3,8 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { Cliente } from '../clientes/clientes.model';
 import { ClientesService } from '../clientes/clientes.service';
 import { DashboardService } from '../dashboard/dashboard.service';
-import { ModalConfirmComponent } from '../modal/modal-confirm/modal-confirm/modal-confirm.component';
+import { ModalConfirmComponent } from '../modal/modal-confirm/modal-confirm.component';
 import { ModalEditComponent } from '../modal/modal-edit/modal-edit.component';
+import { ModalAddComponent } from '../modal/modal-add/modal-add.component';
 
 @Component({
     selector: 'app-clientes',
@@ -79,8 +80,14 @@ export class ClientesComponent implements OnInit {
         this.ngOnInit();
     }
 
+    async openModalAdd() {
+        let modal = this.modal.open(ModalAddComponent);
+        await modal.afterClosed().toPromise();
+        this.ngOnInit();
+    }
+
     async openModalEdit(id: number) {
-        let modal = await this.modal.open(ModalEditComponent, {
+        let modal = this.modal.open(ModalEditComponent, {
             data: await this.clientesService.getByIdCliente(id).toPromise()
         });
         await modal.afterClosed().toPromise();
@@ -88,7 +95,7 @@ export class ClientesComponent implements OnInit {
     }
 
     async openModalConfirm(id: number) {
-        let modal = await this.modal.open(ModalConfirmComponent, {
+        let modal = this.modal.open(ModalConfirmComponent, {
             data: await this.clientesService.getByIdCliente(id).toPromise()
         });
         await modal.afterClosed().toPromise();

@@ -21,6 +21,10 @@ export class ModalService {
         return this.http.get<Cliente>(url);
     }
 
+    postCliente(cliente: Cliente): Observable<Cliente[]> {
+        return this.http.post<Cliente[]>(this.baseUrl, cliente);
+    }
+
     putCliente(cliente: Cliente): Observable<Cliente> {
         const url = `${this.baseUrl}/${cliente.id}`;
         return this.http.put<Cliente>(url, cliente);

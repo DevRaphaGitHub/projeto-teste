@@ -1,9 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Cliente } from '../../../clientes/clientes.model';
-import { ClientesService } from '../../../clientes/clientes.service';
-import { ModalService } from '../../modal.service';
-import { DashboardService } from '../../../dashboard/dashboard.service';
+import { Cliente } from '../../clientes/clientes.model';
+import { ClientesService } from '../../clientes/clientes.service';
+import { DashboardService } from '../../dashboard/dashboard.service';
+import { ModalService } from '../modal.service';
 
 @Component({
     selector: 'app-modal-confirm',
@@ -22,7 +22,7 @@ export class ModalConfirmComponent implements OnInit {
         private clienteService: ClientesService,
         private modalService: ModalService,
         private modal: MatDialog,
-        private dashboard: DashboardService
+        private dashboardService: DashboardService
     ) { }
 
     ngOnInit(): void {
@@ -38,7 +38,7 @@ export class ModalConfirmComponent implements OnInit {
         this.clienteService.showMessage('Cliente excluído!');
         this.modal.closeAll();
         this.ngOnInit();
-        this.dashboard.loadChart();
+        this.dashboardService.loadChart();
     }
 
     closeModal() {

@@ -1,6 +1,10 @@
 .sidenav {
     width: 200px;
     height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin-top: 60px;
     background-color: #fff;
     border: solid 1px #eee;
 }

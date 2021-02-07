@@ -14,10 +14,8 @@ export class ModalAddComponent implements OnInit {
     clientes: Cliente[];
 
     cliente: Cliente = {
-        id: null,
         nome: '',
-        tel: '',
-        cadastro: ''
+        tel: ''
     };
 
     constructor(

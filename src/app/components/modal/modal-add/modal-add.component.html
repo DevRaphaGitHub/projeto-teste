@@ -16,12 +16,6 @@
                     <span matPrefix>+55 &nbsp;</span>
                     <input type="number" matInput name="tel" [(ngModel)]="cliente.tel" required>
                 </mat-form-field>
-                <!-- <mat-form-field class="data-select">
-                    <mat-label>Data Cadastro</mat-label>
-                    <mat-select required [value]="cliente.cadastro">
-                        <mat-option>None</mat-option>
-                    </mat-select>
-                </mat-form-field> -->
             </form>
             <button mat-button color="primary" (click)="createCliente()"
                 [disabled]="cliente.nome === '' || cliente.tel === '' ">

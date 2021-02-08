@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SideBarService } from './side-bar.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalAddComponent } from '../modal/modal-add/modal-add.component';
 
@@ -9,9 +10,15 @@ import { ModalAddComponent } from '../modal/modal-add/modal-add.component';
 })
 export class SideBarComponent implements OnInit {
 
-    constructor(private modal: MatDialog) { }
+    setVisible = this.sidebar.visible;
+
+    constructor(
+        private modal: MatDialog,
+        public sidebar: SideBarService
+    ) { }
 
     ngOnInit(): void {
+        
     }
 
     async openModalAdd() {
@@ -19,5 +26,4 @@ export class SideBarComponent implements OnInit {
         await modal.afterClosed().toPromise();
         this.ngOnInit();
     }
-
 }

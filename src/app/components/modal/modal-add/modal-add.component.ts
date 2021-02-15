@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ClientesService } from '../../clientes/clientes.service';
 import { DashboardService } from '../../dashboard/dashboard.service';
 import { Cliente } from '../../clientes/clientes.model';
+import { ModalService } from '../modal.service';
 
 @Component({
     selector: 'app-modal-add',
@@ -14,31 +14,28 @@ export class ModalAddComponent implements OnInit {
     clientes: Cliente[];
 
     cliente: Cliente = {
+        id: null,
         nome: '',
         tel: ''
     };
 
     constructor(
         @Inject(MAT_DIALOG_DATA)
-        private clienteService: ClientesService,
-        private dashboardService: DashboardService,
+        public dashboardService: DashboardService,
+        private modalService: ModalService,
         private modal: MatDialog
     ) { }
 
-    ngOnInit(): void {
-        this.clienteService.getClientes().subscribe(
-            clientes => {
-                this.clientes = clientes;
-            }
-        );
+    async ngOnInit() {
+        this.modalService.getClientes();
     }
 
     async createCliente() {
-        await this.clienteService.postCliente(this.cliente).toPromise();
-        this.clienteService.showMessage('Cliente cadastrado!');
+        await this.modalService.postCliente(this.cliente).toPromise();
+        this.modalService.showMessage('Cliente cadastrado!');
         this.modal.closeAll();
         this.ngOnInit();
-        this.dashboardService.loadChart();
+        this.modalService.loadGraphic();
     }
 
     closeModal() {

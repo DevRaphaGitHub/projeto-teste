@@ -5,7 +5,6 @@ import { ClientesService } from '../clientes/clientes.service';
 import { DashboardService } from '../dashboard/dashboard.service';
 import { ModalConfirmComponent } from '../modal/modal-confirm/modal-confirm.component';
 import { ModalEditComponent } from '../modal/modal-edit/modal-edit.component';
-import { ModalAddComponent } from '../modal/modal-add/modal-add.component';
 
 @Component({
     selector: 'app-clientes',
@@ -17,7 +16,7 @@ export class ClientesComponent implements OnInit {
 
     clientes: Cliente[];
 
-    displayedColumns = ['id', 'nome', 'tel', 'cadastro', 'actions'];
+    displayedColumns = ['id', 'nome', 'tel', 'actions'];
 
     cliente: Cliente = {
         id: null,
@@ -59,11 +58,11 @@ export class ClientesComponent implements OnInit {
         this.ngOnInit();
     }
 
-    async openModalAdd() {
-        let modal = this.modal.open(ModalAddComponent);
-        await modal.afterClosed().toPromise();
-        this.ngOnInit();
-    }
+    // async openModalAdd() {
+    //     let modal = this.modal.open(ModalAddComponent);
+    //     await modal.afterClosed().toPromise();
+    //     this.ngOnInit();
+    // }
 
     async openModalEdit(id: number) {
         let modal = this.modal.open(ModalEditComponent, {

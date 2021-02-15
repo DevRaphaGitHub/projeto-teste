@@ -8,9 +8,5 @@ export class SideBarService {
   visible: boolean = true;
 
   constructor() { }
-
-  toggle() {
-    this.visible = !this.visible;
-    console.log(this.visible);
-  }
+  
 }

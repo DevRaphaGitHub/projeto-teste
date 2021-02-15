@@ -1,43 +1,36 @@
 {
   "clientes": [
     {
-      "cadastro": "Janeiro",
       "nome": "Raphael",
       "tel": "28999049701",
       "id": 1
     },
     {
-      "cadastro": "Março",
-      "nome": "Lucas",
-      "tel": "28000001111",
+      "nome": "Patrícia",
+      "tel": "28999126446",
       "id": 2
     },
     {
-      "cadastro": "Abril",
       "nome": "Hebert",
       "tel": "28123456789",
       "id": 3
     },
     {
-      "cadastro": "Agosto",
       "nome": "André",
       "tel": "28111112222",
       "id": 4
     },
     {
-      "cadastro": "Janeiro",
       "nome": "Matheus",
       "tel": "28222223333",
       "id": 5
     },
     {
-      "cadastro": "Fevereiro",
       "nome": "Marcelo",
       "tel": "28999998888",
       "id": 6
     },
     {
-      "cadastro": "Dezembro",
       "id": 7,
       "nome": "Almir",
       "tel": "28000001111"

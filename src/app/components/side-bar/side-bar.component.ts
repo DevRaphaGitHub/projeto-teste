@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SideBarService } from './side-bar.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalAddComponent } from '../modal/modal-add/modal-add.component';
 
@@ -10,11 +9,8 @@ import { ModalAddComponent } from '../modal/modal-add/modal-add.component';
 })
 export class SideBarComponent implements OnInit {
 
-    setVisible = this.sidebar.visible;
-
     constructor(
-        private modal: MatDialog,
-        public sidebar: SideBarService
+        private modal: MatDialog
     ) { }
 
     ngOnInit(): void {

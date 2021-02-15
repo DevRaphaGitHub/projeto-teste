@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
 })
 export class SideBarService {
 
-  visible: boolean = true;
-
   constructor() { }
   
 }
